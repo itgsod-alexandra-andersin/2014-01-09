@@ -4,18 +4,15 @@ require_relative 'time_converter'
 require_relative 'my_ad'
 # require 'person'
 
-config = YAML::load_file('config.yaml')
-
-ldap = Net::LDAP.new
-ldap.host = '172.16.2.12'
-ldap.port = 389
-ldap.auth config['username'], config['password']
-ldap.bind
 
 
-person = MyAd.find(givenname: 'Lars*').first
+person = MyAd.find(givenname: 'Daniel*').first
 
-puts person.name
+
+lastlogondate
+
+puts person.cn
+puts TimeConverter(person.lastlogon)
 
 # puts person.lastlogondate
 # puts person.days_since_last_logon
