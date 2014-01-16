@@ -6,13 +6,11 @@ require_relative 'my_ad'
 
 
 
-person = MyAd.find(givenname: 'Daniel*').first
-
-
-lastlogondate
+person = MyAd.find(givenname: 'Jens*').first
+lastlogondate = TimeConverter.ad_to_posix_timestamp(person.lastlogon)
 
 puts person.cn
-puts TimeConverter(person.lastlogon)
+puts lastlogondate
 
 # puts person.lastlogondate
 # puts person.days_since_last_logon

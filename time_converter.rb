@@ -1,7 +1,7 @@
 class TimeConverter
 
   def self.ad_to_posix_timestamp(ad_timestamp)
-    ad_timestamp = ad_timestamp.to_i
+    ad_timestamp = ad_timestamp.first.to_i
     ad_unix_epoch_difference = 116444736000000000
     difference = ad_timestamp - ad_unix_epoch_difference
     nanoseconds_in_hundreds_per_second = 10000000
