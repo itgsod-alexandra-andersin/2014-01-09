@@ -11,9 +11,4 @@ class TimeConverter
   def self.posix_timestamp_to_datetime(posix_timestamp)
   return Time.at(posix_timestamp).to_datetime
   end
-
-
-  def self.ad_timestamp_to_datetime(ad_timestamp)
-   posix_timestamp_to_datetime(ad_to_posix_timestamp(ad_timestamp))
-  end
 end
