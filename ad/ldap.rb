@@ -2,15 +2,16 @@ require 'net/ldap'
 require 'yaml'
 require_relative 'time_converter'
 require_relative 'my_ad'
+require_relative 'person'
 # require 'person'
 
 
 
-person = MyAd.find(givenname: 'Jens*').first
-lastlogondate = TimeConverter.ad_to_posix_timestamp(person.lastlogon)
+people = Person.from_list(MyAd.find(givenname: 'Danie*'))
 
-puts person.cn
-puts lastlogondate
+people.each do |person|
+  puts person.name
+end
 
 # puts person.lastlogondate
 # puts person.days_since_last_logon
